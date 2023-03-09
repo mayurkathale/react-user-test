@@ -1,0 +1,40 @@
+@import '../../styles/index.scss';
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+
+  > div {
+    display: inline-block;
+    border: 1px solid $black;
+    padding: 15px 40px;
+    background-color: $white;
+
+    > span {
+      border: 1px solid lightgray;
+      height: 30px;
+      width: 30px;
+      display: inline-block;
+      text-align: center;
+      font-size: 0.6rem;
+      line-height: 30px;
+      margin: 0 2px;
+      cursor: pointer;
+
+      &.current {
+        color: $white;
+        background-color: $black;
+      }
+    }
+
+    :first-child {
+      margin-left: 0;
+    }
+
+    :last-child {
+      margin-right: 0;
+    }
+  }
+}

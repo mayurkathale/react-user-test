@@ -1,0 +1,23 @@
+$sm: 700px;
+$md: 1024px;
+$lg: 1440px;
+
+@mixin respond($breakpoint) {
+  @if $breakpoint==desktop {
+    @media only screen and (max-width: $lg) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==tablet {
+    @media only screen and (max-width: $md) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==mobile {
+    @media only screen and (max-width: $sm) {
+      @content;
+    }
+  }
+}

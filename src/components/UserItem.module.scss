@@ -1,0 +1,37 @@
+@import '../styles/index.scss';
+.useritem {
+  background-color: $white;
+  padding: 10px;
+
+  > div:nth-child(2) {
+    color: $userInfoColor;
+    margin-bottom: 20px;
+  }
+
+  .imgBox {
+    background-color: $imageBg;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .userInfo {
+    display: table;
+    width: 100%;
+    > div {
+      display: table-row;
+      :first-child {
+        font-weight: 700;
+        min-width: 90px;
+      }
+      :last-child {
+        color: $userInfoColor;
+      }
+      > div {
+        display: table-cell;
+        padding: 3px;
+      }
+    }
+  }
+}
