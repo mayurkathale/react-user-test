@@ -1,3 +1,4 @@
+import { UserData } from '@/types';
 import { ACTION_TYPES } from '../constants';
 
 export const setPage = (page: number) => {
@@ -18,5 +19,12 @@ export const setPageLoading = (loading: boolean) => {
   return {
     type: ACTION_TYPES.SET_PAGE_LOADING,
     payload: loading,
+  };
+};
+
+export const setSortBy = (sortBy: keyof UserData) => {
+  return {
+    type: ACTION_TYPES.SET_SORT_BY,
+    payload: sortBy,
   };
 };

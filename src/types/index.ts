@@ -23,6 +23,7 @@ export type PaginationState = {
   perPage: number;
   totalPages: number;
   pageLoading: boolean;
+  sortBy: keyof UserData;
 };
 
 export type StoreState = {

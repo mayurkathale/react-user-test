@@ -11,8 +11,8 @@
     "check-types": "tsc --pretty --noEmit",
     "check-format": "prettier --check 'src/**/*.{tsx,ts,json,scss}'",
     "check-lint": "eslint . --ext ts --ext tsx",
-    "test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run test",
-    "fix-all": "prettier --write 'src/**/*.{tsx,ts,json,scss}' && eslint --fix .",
+    "check:all": "npm run check-format && npm run check-lint && npm run check-types && npm run test",
+    "fix:all": "prettier --write 'src/**/*.{tsx,ts,json,scss}' && eslint --fix .",
     "prepare": "husky install"
   },
   "dependencies": {

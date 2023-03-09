@@ -6,6 +6,7 @@ const initialState: PaginationState = {
   perPage: 6,
   totalPages: 2,
   pageLoading: false,
+  sortBy: 'id',
 };
 
 export const PaginationReducer = (
@@ -21,6 +22,9 @@ export const PaginationReducer = (
 
     case ACTION_TYPES.SET_PAGE_LOADING:
       return { ...state, pageLoading: payload };
+
+    case ACTION_TYPES.SET_SORT_BY:
+      return { ...state, sortBy: payload };
 
     default:
       return state;

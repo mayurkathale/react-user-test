@@ -1,18 +1,22 @@
+import { setSortBy } from '@/store/actions/page.action';
 import { setUsers } from '@/store/actions/user.action';
 import { StoreState, UserData } from '@/types';
 import { sortUsers } from '@/utils';
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { memo } from 'react';
 import styles from './Dropdown.module.scss';
 
+type Props = {
+  sortBy: keyof UserData;
+};
+
 const defaultSelectValue = 'id';
-const Dropdown = () => {
-  const [selected, setSelected] = useState(defaultSelectValue);
+const Dropdown = ({ sortBy }: Props) => {
   const dispatch = useDispatch();
   const users = useSelector((state: StoreState) => state.users.users);
 
   const handleOnChange = (value: keyof UserData) => {
-    setSelected(value);
+    dispatch(setSortBy(value));
     dispatch(
       setUsers(
         sortUsers(
@@ -43,8 +47,8 @@ const Dropdown = () => {
       <select
         id="fruits"
         name="fruits"
-        defaultValue={selected}
-        style={{ color: selected === defaultSelectValue ? 'gray' : 'black' }}
+        defaultValue={sortBy}
+        style={{ color: sortBy === defaultSelectValue ? 'gray' : 'black' }}
         onChange={(e) => handleOnChange(e.target.value as keyof UserData)}
       >
         {options.map((option, i) => (
@@ -56,4 +60,4 @@ const Dropdown = () => {
     </div>
   );
 };
-export default Dropdown;
+export default memo(Dropdown);

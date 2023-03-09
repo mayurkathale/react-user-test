@@ -1,5 +1,6 @@
 import { UserData } from '@/types';
 import Image from 'next/image';
+import UserItemDetail from './UserItemDetail/UserItemDetail';
 import styles from './UserItem.module.scss';
 
 type Props = {
@@ -11,30 +12,19 @@ const UserItem = ({ user }: Props) => {
     <div className={styles.useritem}>
       <div className={styles.imgBox}>
         <Image
-          //loader={() => user.avatar}
           src={user.avatar}
           alt="asda"
           width={180}
           height={180}
+          placeholder="blur"
+          blurDataURL="https://reqres.in/img/faces/1-image.jpg"
         />
       </div>
       <div>#{user.id}</div>
       <div className={styles.userInfo}>
-        <div>
-          <div>First Name</div>
-          <div>:</div>
-          <div>{user.first_name}</div>
-        </div>
-        <div>
-          <div>Last Name</div>
-          <div>:</div>
-          <div>{user.last_name}</div>
-        </div>
-        <div>
-          <div>Email</div>
-          <div>:</div>
-          <div>{user.email}</div>
-        </div>
+        <UserItemDetail label="First Name" detail={user.first_name} />
+        <UserItemDetail label="Last Name" detail={user.last_name} />
+        <UserItemDetail label="Email" detail={user.email} />
       </div>
     </div>
   );
