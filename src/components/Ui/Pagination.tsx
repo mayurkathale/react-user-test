@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './Pagination.module.scss';
 
 const Pagination = () => {
-  let pageStore = useSelector((state: StoreState) => state.pages);
+  const pageStore = useSelector((state: StoreState) => state.pages);
   const dispatch = useDispatch();
 
   const handleSetCurrentPage = (pageNumber: number) => {

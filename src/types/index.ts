@@ -29,3 +29,13 @@ export type StoreState = {
   users: UserState;
   pages: PaginationState;
 };
+
+export type PaginationReducerArg = {
+  type: string;
+  payload: number | boolean;
+};
+
+export type UserReducerArg = {
+  type: string;
+  payload: UserData[] | [];
+};

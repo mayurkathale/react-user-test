@@ -1,5 +1,5 @@
 import { ACTION_TYPES } from '../constants';
-import { PaginationState } from '@/types';
+import { PaginationReducerArg, PaginationState } from '@/types';
 
 const initialState: PaginationState = {
   page: 1,
@@ -10,7 +10,7 @@ const initialState: PaginationState = {
 
 export const PaginationReducer = (
   state = initialState,
-  { type, payload }: any
+  { type, payload }: PaginationReducerArg
 ) => {
   switch (type) {
     case ACTION_TYPES.SET_PAGE:

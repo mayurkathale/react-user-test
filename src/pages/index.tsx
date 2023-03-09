@@ -31,7 +31,9 @@ export default function Home({ response }: Prop) {
   );
 }
 
-export async function getStaticProps(context: any): Promise<any> {
+export async function getStaticProps(): Promise<{
+  props: { response: ApiResponse };
+}> {
   const response = (await (
     await fetch(process.env.NEXT_PUBLIC_API_URL + '=1')
   ).json()) as ApiResponse;

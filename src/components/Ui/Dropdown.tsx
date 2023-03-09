@@ -1,5 +1,5 @@
 import { setUsers } from '@/store/actions/user.action';
-import { StoreState } from '@/types';
+import { StoreState, UserData } from '@/types';
 import { sortUsers } from '@/utils';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,7 +11,7 @@ const Dropdown = () => {
   const dispatch = useDispatch();
   const users = useSelector((state: StoreState) => state.users.users);
 
-  const handleOnChange = (value: string) => {
+  const handleOnChange = (value: keyof UserData) => {
     setSelected(value);
     dispatch(
       setUsers(
@@ -45,7 +45,7 @@ const Dropdown = () => {
         name="fruits"
         defaultValue={selected}
         style={{ color: selected === defaultSelectValue ? 'gray' : 'black' }}
-        onChange={(e) => handleOnChange(e.target.value)}
+        onChange={(e) => handleOnChange(e.target.value as keyof UserData)}
       >
         {options.map((option, i) => (
           <option key={i} value={option.value}>
