@@ -34,6 +34,7 @@ export default function Home({ response }: Prop) {
 export async function getStaticProps(): Promise<{
   props: { response: ApiResponse };
 }> {
+  console.log('printing env', process.env.NEXT_PUBLIC_API_URL);
   const response = (await (
     await fetch(process.env.NEXT_PUBLIC_API_URL + '=1')
   ).json()) as ApiResponse;
